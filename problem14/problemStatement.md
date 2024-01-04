@@ -1,25 +1,36 @@
-## Implementing a Blog Creation Form and Routing in a Node.js MVC Application
+## Node.js MVC: Parsing Form Data and Adding a New Blog
 
-You are tasked with enhancing an existing Node.js MVC (Model-View-Controller) application to include a blog creation form and associated routing functionality.
+Enhance an existing Node.js MVC application to include form data parsing and routing functionality. Implement the following features within the existing codebase:
 
-    Create a blog creation form named "createBlog.ejs" inside the "views" directory. The form should capture the following information from the user:
-        1. Blog title: a text input field for entering the title of the blog.
-        2. Blog description: a text area for entering a brief description of the blog.
-        3. Blog image URL: a text input field for providing the URL of an image related to the blog.
+# Render Blog Form
 
-    In the "blog.controller.js" file, complete the implementation of the "renderBlogForm" function. This function should:
-        1. Render the "createBlog.ejs" view, displaying the blog creation form to the user.
-        2. Ensure that the rendered view includes necessary form elements (title, description, and image URL inputs).
+    1.Implement a route handler for a GET request to "/createblog" in index.js.
 
-    Implement a GET route ("/createblog") in the "index.js" file, which serves as the main entry point of the application. This route should:
-        1. Utilize the "renderBlogForm" function from the "blog.controller.js" file to render the blog creation form view.
+    2.Complete the renderBlogForm function defined in blog.controller.js. The renderBlogForm function should serve as the controller for the "/createblog" route, rendering the "renderBlogForm" view.
+
+    3.Add the necessary middleware to parse the request body.
+
+# Render Blogs
+
+    1.Implement a route handler for a GET request to "/" in index.js.
+
+    2.Complete the renderBlogs function, as defined in blog.controller.js, to render the "blogs" view. This view should display all the data from the "blogs" array in blog.model.js.
+    The renderBlogs function should serve as the controller for the "/createblog" route
+    Additionally, implement the "blogs" view, which will list all the data for the blogs.
+
+# Add New Blog
+
+    1.Implement a route handler for a POST request to "/addblog" in index.js.
+    2.Complete the addBlog function defined in blog.controller.js to handle the user's POST request.
+    3.Update the "blogs" array in blog.model.js with the newly added blog.
+    4.Render the "blog" view with the updated "blogs" array to display the newly added blog along with the existing blogs.
 
 ## Output
 
-    You can find the sample output in the output folder.
+See the sample output GIF file inside output folder for the expected behavior of the implemented features.
+
+Sample Output: https://files.codingninjas.in/output-27944.gif
 
 ## Note
 
-Your implementation should follow the Node.js MVC pattern, ensuring a clear separation of concerns among models, views, and controllers. Additionally, it should leverage the EJS templating engine to render the necessary views.
-
-Please note that you are only responsible for implementing the changes specified above and should work within the existing codebase.
+Follow the Node.js MVC pattern to maintain a clear separation of concerns among models, views, and controllers. Utilize the EJS templating engine for rendering views. Your responsibility is limited to the specified changes within the existing codebase.

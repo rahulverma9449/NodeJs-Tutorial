@@ -1,19 +1,24 @@
 // Please don't change the pre-written code
 // Import the necessary modules here
-import ejs from "ejs";
-import express from "express";
+
+import express, { urlencoded } from "express";
 import path from "path";
+import {
+  addBlog,
+  renderBlogForm,
+  renderBlogs,
+} from "./src/controllers/blog.controller.js";
 import expressEjsLayouts from "express-ejs-layouts";
-import { renderBlogForm } from "./src/controllers/blog.controller.js";
 
 const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", path.resolve("src", "views"));
 app.use(expressEjsLayouts);
+app.use(urlencoded({ extended: true }));
 
-// Write your code here
-
+app.get("/", renderBlogs);
 app.get("/createblog", renderBlogForm);
+app.post("/addblog", addBlog);
 
 export default app;
